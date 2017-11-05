@@ -4,7 +4,7 @@
   "description": "The Official Bot for Rush Hour!",
   "main": "bot.js",
   "scripts": {
-    "start": "node bot.js"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Zach",
   "license": "ISC",
