@@ -1,0 +1,14 @@
+{
+  "name": "rh-bot",
+  "version": "1.0.0",
+  "description": "The Official Bot for Rush Hour!",
+  "main": "bot.js",
+  "scripts": {
+    "start": "node bot.js"
+  },
+  "author": "Zach",
+  "license": "ISC",
+  "dependencies": {
+    "discord.js": "^11.2.1"
+  }
+}
