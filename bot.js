@@ -68,15 +68,6 @@ var random = [
 
 var bot = new Discord.Client();
 
-// Logs "Bot is Launched" when the bot is online
-bot.on("ready", function() {
-    console.log("Bot is Launched");
-});
-
-bot.on("messageReactionAdd", (messageReaction, user) => {
-//code here
-}
-
 // When a user joins it sends this message in the #member-welcome chat
 bot.on("guildMemberAdd", function(member) {
     member.guild.channels.find("name", "member-welcome").sendMessage(member.toString() + " **Welcome to Critical eSports!** You can start by setting your rank in the #rank-set channel!");
