@@ -98,17 +98,6 @@ bot.on("message", function(message) {
             else message.channel.sendMessage("Invalid Arguments, !1-10");
             break;
 
-        // Sets the bots status
-        case "status":
-            bot.user.setStatus("Do Not Disturb")
-            break;
-
-        // Sets the bots game
-        case "game":
-            bot.user.setGame("Critical eSports")
-            message.channel.sendMessage("Game is now set to __**Critical eSports**__");
-            break;
-
         // User sends !staff and it outputs a list of staff that can help them
         case "staff":
             var staff = new Discord.RichEmbed()
