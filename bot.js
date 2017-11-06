@@ -59,7 +59,7 @@ bot.on("message", function(message) {
         // Sets the bots game
         case "game":
             bot.user.setGame("Critical eSports")
-            message.channel.sendMessage("Game is now set to __**Critical eSports**__");
+            message.channel.sendMessage("Game is now set to __**+help | Rush Hour Discord Bot**__");
             break;
 
         // User sends !staff and it outputs a list of staff that can help them
