@@ -1,6 +1,6 @@
 const Discord = require("discord.js");
 
-const TOKEN = "Mzc2ODg0NjQwNjIxMDAyNzYy.DOE4rw.rXg8rDTcBxHwR1euYehzjFJqmFI"
+const TOKEN = "Mzc2MTIzNzk3NzU1MTMzOTcy.DN52IA.SSMinn0i5jtcGPqHJoopQ_mcDY0"
 const PREFIX = "+"
 
 // The random numbers for the +1-10 command
@@ -23,6 +23,13 @@ var bot = new Discord.Client();
 bot.on("ready", function() {
     console.log("Bot is Launched");
 });
+
+  message.awaitReactions(function(message) {
+      if (addReaction.message.id = 376946870595092490)
+        message.channel.sendMessage("Whoo!");        
+        else return true;                     
+})
+
 
 // When a user joins it sends this message in the #member-welcome chat
 bot.on("guildMemberAdd", function(member) {
@@ -51,10 +58,15 @@ bot.on("message", function(message) {
             else message.channel.sendMessage("Invalid Arguments, !1-10");
             break;
 
+        // Sets the bots status
+        case "status":
+            bot.user.setStatus("Do Not Disturb")
+            break;
+
         // Sets the bots game
         case "game":
-            bot.user.setGame("+help | Rush Hour Discord Bot")
-            message.channel.sendMessage("Game is now set to __**+help | Rush Hour Discord Bot**__");
+            bot.user.setGame("Critical eSports")
+            message.channel.sendMessage("Game is now set to __**Critical eSports**__");
             break;
 
         // User sends !staff and it outputs a list of staff that can help them
@@ -73,7 +85,7 @@ bot.on("message", function(message) {
         // User sends !help and it outputs a list of all the bots commands
         case "help":
             var help = new Discord.RichEmbed()
-                .addField("__+Rush__", "Outputs Hour!", true)
+                .addField("__+critical__", "Outputs eSports ", true)
                 .addField("__+1-10__","Picks a random number 1-10", true)
                 .addField("__+staff__","Sends a list of our staff members!")
                 .addField("__+onJoin__", "Shows what the bot does to a user when the user join the server")
@@ -94,6 +106,7 @@ bot.on("message", function(message) {
                 .setTitle("__**When a person join the discord the bot does these 3 things:**__")
             message.channel.sendEmbed(onjoin);
             break;
+
             
         // If the command is invalid it outputs this message
         default:
