@@ -99,7 +99,12 @@ bot.on("message", function(message) {
                 .setTitle("__**When a person join the discord the bot does these 3 things:**__")
             message.channel.sendEmbed(onjoin);
             break;
-
+            
+        case "test":
+            var test = new Discord.RichEmbed()
+                .addField("TEST", "**THIS IS A TEST!**", true)
+            message.channel.sendEmbed(test);
+            break;
             
         // If the command is invalid it outputs this message
         default:
