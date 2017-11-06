@@ -58,7 +58,7 @@ bot.on("message", function(message) {
 
         // Sets the bots game
         case "game":
-            bot.user.setGame("Critical eSports")
+            bot.user.setGame("+help | Rush Hour Discord Bot")
             message.channel.sendMessage("Game is now set to __**+help | Rush Hour Discord Bot**__");
             break;
 
