@@ -3,6 +3,55 @@ const Discord = require("discord.js");
 const TOKEN = "Mzc2ODg0NjQwNjIxMDAyNzYy.DOIcKA.7rfuVIg4ECA4pKJMxpHnYp-0Et8"
 const PREFIX = "+"
 
+bot.on('ready', () => {
+    console.log('Discord bot running');
+    console.log(bot.guilds);
+    bot.guilds.forEach(function (g) {
+        var c = g.channels.find("name", "rank-set");
+        c.fetchMessages().then(function (messages) {
+            messages.forEach(function (m) {
+                console.log(m.content + " Emojis, triggered");
+                m.awaitReactions(function () {
+                    return true;
+                })
+            });
+        });
+    });
+    bot.user.setPresence({
+        game: {
+            name: ' Rush Hour Discord Bot',
+            type: 0
+        }
+    });
+})
+bot.on('guildMemberAdd', member => {
+    // New user joined server
+    member.send("Welcome to Critical eSports!");
+
+})
+bot.on('message', message => {
+    if (message.author.bot) return;
+    // Message
+})
+bot.on("messageReactionAdd", (reaction = messageReaction, user) => {
+    var name = reaction.emoji.name
+
+    console.log(name);
+
+    var role = reaction.message.member.guild.roles.find('name', name.replace('_', ' '));
+    var member = reaction.message.guild.member(user);
+    member.addRole(role).catch(err => console.log(err));
+})
+bot.on("messageReactionRemove", (reaction = messageReaction, user) => {
+    var name = reaction.emoji.name
+
+    console.log(name);
+
+    var role = reaction.message.member.guild.roles.find('name', name.replace('_', ' '));
+    var member = reaction.message.guild.member(user);
+    member.removeRole(role).catch(err => console.log(err));
+})
+
 // The random numbers for the +1-10 command
 var random = [
     "1",
