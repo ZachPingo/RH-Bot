@@ -1,6 +1,6 @@
 const Discord = require("discord.js");
 
-const TOKEN = "Mzc2MTIzNzk3NzU1MTMzOTcy.DN52IA.SSMinn0i5jtcGPqHJoopQ_mcDY0"
+const TOKEN = "Mzc2ODg0NjQwNjIxMDAyNzYy.DOE4rw.rXg8rDTcBxHwR1euYehzjFJqmFI"
 const PREFIX = "+"
 
 // The random numbers for the +1-10 command
