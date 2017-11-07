@@ -6,7 +6,7 @@ bot.on('ready', () => {
     console.log('Discord bot running');
     console.log(bot.guilds);
     bot.guilds.forEach(function (g) {
-        var c = g.channels.find("name", "rank-set");
+        var c = g.channels.find("name", "rank-set-update");
         c.fetchMessages().then(function (messages) {
             messages.forEach(function (m) {
                 console.log(m.content + " Emojis, triggered");
