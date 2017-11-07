@@ -25,7 +25,7 @@ bot.on('ready', () => {
 })
 bot.on('guildMemberAdd', member => {
     // New user joined server
-    member.send("Welcome to Critical eSports!");
+    member.send("Welcome to Rush Hour you can start by setting your rank in the #rank-set-update channel!");
 
 })
 bot.on('message', message => {
@@ -68,13 +68,6 @@ var random = [
 // Logs "Bot is Launched" when the bot is online
 bot.on("ready", function() {
     console.log("Bot is Launched");
-});
-
-// When a user joins it sends this message in the #member-welcome chat
-bot.on("guildMemberAdd", function(member) {
-    member.guild.channels.find("name", "member-welcome").sendMessage(member.toString() + " **Welcome to Critical eSports!** You can start by setting your rank in the #rank-set channel!");
-// Auto sets the persons rank to Unverified
-    member.addRole(member.guild.roles.find("name", "Unverified"));
 });
 
 // Makes sure the user adds the + prefix
