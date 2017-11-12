@@ -80,52 +80,6 @@ bot.on("message", function(message) {
 
 // START OF COMMANDS!
     switch (args[0].toLowerCase()) {
-            
-         // Mutes a user with a command (Must Me Mod+)
-         case "mute": {
-            let modRole = message.guild.roles.find("name", "Mod")
-            if(!message.member.roles.has(modRole.id)) {
-                return message.reply("You must be **Mod** to preform this command")
-                    break;
-            }
-            if(message.mentions.users.size === 0) {
-                return message.reply("Please mention a user to mute!")
-            }
-            let member = message.guild.member(message.mentions.users.first())
-            if(!member.addRole) {
-                return menssage.reply("That user is not in the Discord!")
-            }
-           if (!message.guild.member(bot.user).hasPermission("MANAGE_ROLE")) {
-                return message.reply("I dont have enough permmisions")
-           }
-           member.addRole(member.guild.roles.find("name", "Muted")).then(member => {
-                message.reply(`${member.user.username} has been muted.`).catch(console.error);
-        });
-    }
-        break;
-
-         // Unmutes a user with a command (Must Me Mod+)
-         case "unmute": {
-            let modRole = message.guild.roles.find("name", "Mod")
-            if(!message.member.roles.has(modRole.id)) {
-                return message.reply("You must be **Mod** to preform this command")
-                    break;
-            }
-            if(message.mentions.users.size === 0) {
-                return message.reply("Please mention a user to unmute!")
-            }
-            let member = message.guild.member(message.mentions.users.first())
-            if(!member.removeRole) {
-                return menssage.reply("That user is not in the Discord!")
-            }
-           if (!message.guild.member(bot.user).hasPermission("MANAGE_ROLES")) {
-                return message.reply("I dont have enough permmisions")
-           }
-           member.removeRole(member.guild.roles.find("name", "Muted")).then(member => {
-                message.reply(`${member.user.username} has been unmuted.`).catch(console.error);
-        });
-    }
-        break;
 
         // User sends !Rush bot sends Hour!
             case "rush":
