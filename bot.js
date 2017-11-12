@@ -81,8 +81,8 @@ bot.on("message", function(message) {
 // START OF COMMANDS!
     switch (args[0].toLowerCase()) {
         // User sends !Critical bot sends eSports!
-            case "critical":
-            message.channel.sendMessage("eSports!");
+            case "rush":
+            message.channel.sendMessage("Hour!");
             break;
 
         // User sends !1-10 bot picks a random number and says it.
@@ -94,10 +94,10 @@ bot.on("message", function(message) {
         // User sends !staff and it outputs a list of staff that can help them
         case "staff":
             var staff = new Discord.RichEmbed()
-                .addField("__Owner(s)__", "@Zach#8475", true)
-                .addField("__Admin(s)__", "@420Coon#3481", true)
-                .addField("__Moderator(s)__", "@kaoticxkillerx#9688 , @Theclamhammer69#9997 , @Samaritan#6760  ,  @Aspect360#4980")
-                .addField("__Mod(s) In Training__" , "@Silmaril#1845")
+                .addField("__Owner(s)__", "@Zach#8475 , @420Coon#3481", true)
+                .addField("__Admin(s)__", "N/A", true)
+                .addField("__Moderator(s)__", "@kaoticxkillerx#9688 , @Silmaril#1845 , @Samaritan#6760  ,  @Aspect360#4980 , @Theclamhammer69#9997 ")
+                .addField("__Mod(s) In Training__" , " N/A ")
                 .setColor(0xc30000)
                 .setFooter("Message anyone of these people to get help!")
                 .setTitle("__**Staff Members**__")
