@@ -80,7 +80,100 @@ bot.on("message", function(message) {
 
 // START OF COMMANDS!
     switch (args[0].toLowerCase()) {
-        // User sends !Critical bot sends eSports!
+            
+         // Kicks a user with a command (Must Me Admin+)
+         case "kick": {
+            let modRole = message.guild.roles.find("name", "Admin")
+            if(!message.member.roles.has(modRole.id)) {
+                return message.reply("You must be **Admin** to preform this command")
+                    break;
+            }
+            if(message.mentions.users.size === 0) {
+                return message.reply("Please mention a user to kick!")
+            }
+            let kickMember = message.guild.member(message.mentions.users.first())
+            if(!kickMember) {
+                return menssage.reply("That user is not in the Discord!")
+            }
+           if (!message.guild.member(bot.user).hasPermission("KICK_MEMBERS")) {
+                return message.reply("I dont have enough permmisions")
+           }
+           kickMember.kick().then(member => {
+                message.reply(`${member.user.username} has been kicked.`).catch(console.error);
+        });
+    }
+        break;
+
+         // Mutes a user with a command (Must Me Mod+)
+         case "mute": {
+            let modRole = message.guild.roles.find("name", "Mod")
+            if(!message.member.roles.has(modRole.id)) {
+                return message.reply("You must be **Mod** to preform this command")
+                    break;
+            }
+            if(message.mentions.users.size === 0) {
+                return message.reply("Please mention a user to mute!")
+            }
+            let member = message.guild.member(message.mentions.users.first())
+            if(!member.addRole) {
+                return menssage.reply("That user is not in the Discord!")
+            }
+           if (!message.guild.member(bot.user).hasPermission("MANAGE_ROLE")) {
+                return message.reply("I dont have enough permmisions")
+           }
+           member.addRole(member.guild.roles.find("name", "Muted")).then(member => {
+                message.reply(`${member.user.username} has been muted.`).catch(console.error);
+        });
+    }
+        break;
+
+         // Unmutes a user with a command (Must Me Mod+)
+         case "unmute": {
+            let modRole = message.guild.roles.find("name", "Mod")
+            if(!message.member.roles.has(modRole.id)) {
+                return message.reply("You must be **Mod** to preform this command")
+                    break;
+            }
+            if(message.mentions.users.size === 0) {
+                return message.reply("Please mention a user to unmute!")
+            }
+            let member = message.guild.member(message.mentions.users.first())
+            if(!member.removeRole) {
+                return menssage.reply("That user is not in the Discord!")
+            }
+           if (!message.guild.member(bot.user).hasPermission("MANAGE_ROLES")) {
+                return message.reply("I dont have enough permmisions")
+           }
+           member.removeRole(member.guild.roles.find("name", "Muted")).then(member => {
+                message.reply(`${member.user.username} has been unmuted.`).catch(console.error);
+        });
+    }
+        break;
+
+        // Bans a user with a command (Must be Admin)
+        case "ban": {
+            let modRole = message.guild.roles.find("name", "Admin")
+            if(!message.member.roles.has(modRole.id)) {
+                return message.reply("You must be **Admin** to preform this command")
+                    break;
+            }
+            if(message.mentions.users.size === 0) {
+                return message.reply("Please mention a user to ban!")
+            }
+            let banMember = message.guild.member(message.mentions.users.first())
+            if(!banMember) {
+                return menssage.reply("That user is not in the Discord!")
+            }
+           if (!message.guild.member(bot.user).hasPermission("BAN_MEMBERS")) {
+                return message.reply("I dont have enough permmisions")
+           }
+           banMember.ban().then(member => {
+                message.reply(`${member.user.username} has been banned.`).catch(console.error);
+        });
+    }
+        break;
+
+        // User sends !Rush bot sends Hour!
             case "rush":
             message.channel.sendMessage("Hour!");
             break;
@@ -107,10 +200,10 @@ bot.on("message", function(message) {
         // User sends !help and it outputs a list of all the bots commands
         case "help":
             var help = new Discord.RichEmbed()
-                .addField("__+critical__", "Outputs eSports ", true)
-                .addField("__+1-10__","Picks a random number 1-10", true)
-                .addField("__+staff__","Sends a list of our staff members!")
-                .addField("__+onJoin__", "Shows what the bot does to a user when the user join the server")
+                .addField("__!rush__", "Outputs Hour! ", true)
+                .addField("__!1-10__","Picks a random number 1-10", true)
+                .addField("__!staff__","Sends a list of our staff members!")
+                .addField("__!onJoin__", "Shows what the bot does to a user when the user join the server")
                 .setColor(0xc30000)
                 .setFooter("That is all the commands! (More to come in the near future)")
                 .setTitle("__**Command List**__")
