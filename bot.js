@@ -18,14 +18,14 @@ bot.on('ready', () => {
     });
     bot.user.setPresence({
         game: {
-            name: '!help | Rush Hour Discord',
+            name: ' Rush Hour Discord',
             type: 0
         }
     });
 })
 bot.on('guildMemberAdd', member => {
     // New user joined server
-    member.send("Welcome to Rush Hour you can set your rank by going to the #rank-set-update channel!");
+    member.send("Welcome to Rush Hour!");
 
 })
 bot.on('message', message => {
