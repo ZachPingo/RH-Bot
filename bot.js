@@ -222,9 +222,9 @@ bot.on("message", function(message) {
             message.channel.sendEmbed(onjoin);
             break;
 
-        // User sends !staffCommands and it outputs staff commands
-        case "staffCommands":
-            var staffCommands = new Discord.RichEmbed()
+        // User sends !staffcmds and it outputs what the bot does when a user joins the server
+        case "staffcmds":
+            var staffcmds = new Discord.RichEmbed()
                 .addField("__!mute @(Name)__", "Mutes the member mentioned (Mod+)", true)
                 .addField("__!unmute @(Name)__","Unmutes the member mentioned (Mod+)", true)
                 .addField("__!kick @(Name)__", "Kicks the member mentioned (Admin+)")
@@ -232,8 +232,8 @@ bot.on("message", function(message) {
                 .setColor(0xc30000)
                 .setFooter("That is all the commands staff can do!")
                 .setTitle("__**Staff commands:**__")
-        message.channel.sendEmbed(staffCommands);
-        break;
+            message.channel.sendEmbed(staffcmds).catch(console.error);
+            break;
 
         // If the command is invalid it outputs this message
         default:
