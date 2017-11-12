@@ -6,7 +6,7 @@ bot.on('ready', () => {
     console.log('Discord bot running');
     console.log(bot.guilds);
     bot.guilds.forEach(function (g) {
-        var c = g.channels.find("name", "rank-set-update");
+        var c = g.channels.find("name", "rank-set");
         c.fetchMessages().then(function (messages) {
             messages.forEach(function (m) {
                 console.log(m.content + " Emojis, triggered");
@@ -18,14 +18,14 @@ bot.on('ready', () => {
     });
     bot.user.setPresence({
         game: {
-            name: ' +help | Rush Hour Discord Bot',
+            name: '!help | Rush Hour Discord',
             type: 0
         }
     });
 })
 bot.on('guildMemberAdd', member => {
     // New user joined server
-    member.send("Welcome to Rush Hour you can start by setting your rank in the #rank-set-update channel!");
+    member.send("Welcome to Rush Hour you can set your rank by going to the #rank-set-update channel!");
 
 })
 bot.on('message', message => {
