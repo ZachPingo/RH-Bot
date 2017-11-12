@@ -232,7 +232,7 @@ bot.on("message", function(message) {
             .setColor(0xc30000)
             .setFooter("That is all the commands staff can do!")
             .setTitle("__**Staff commands:**__")
-        message.channel.sendEmbed(onjoin).catch(console.error);
+        message.channel.sendEmbed(staffCommands).catch(console.error);
         break;
 
         // If the command is invalid it outputs this message
