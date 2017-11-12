@@ -1,6 +1,6 @@
 const Discord = require('discord.js');
 const bot = new Discord.Client();
-const PREFIX = "+"
+const PREFIX = "!"
 
 bot.on('ready', () => {
     console.log('Discord bot running');
@@ -81,29 +81,6 @@ bot.on("message", function(message) {
 // START OF COMMANDS!
     switch (args[0].toLowerCase()) {
             
-         // Kicks a user with a command (Must Me Admin+)
-         case "kick": {
-            let modRole = message.guild.roles.find("name", "Admin")
-            if(!message.member.roles.has(modRole.id)) {
-                return message.reply("You must be **Admin** to preform this command")
-                    break;
-            }
-            if(message.mentions.users.size === 0) {
-                return message.reply("Please mention a user to kick!")
-            }
-            let kickMember = message.guild.member(message.mentions.users.first())
-            if(!kickMember) {
-                return menssage.reply("That user is not in the Discord!")
-            }
-           if (!message.guild.member(bot.user).hasPermission("KICK_MEMBERS")) {
-                return message.reply("I dont have enough permmisions")
-           }
-           kickMember.kick().then(member => {
-                message.reply(`${member.user.username} has been kicked.`).catch(console.error);
-        });
-    }
-        break;
-
          // Mutes a user with a command (Must Me Mod+)
          case "mute": {
             let modRole = message.guild.roles.find("name", "Mod")
@@ -146,29 +123,6 @@ bot.on("message", function(message) {
            }
            member.removeRole(member.guild.roles.find("name", "Muted")).then(member => {
                 message.reply(`${member.user.username} has been unmuted.`).catch(console.error);
-        });
-    }
-        break;
-
-        // Bans a user with a command (Must be Admin)
-        case "ban": {
-            let modRole = message.guild.roles.find("name", "Admin")
-            if(!message.member.roles.has(modRole.id)) {
-                return message.reply("You must be **Admin** to preform this command")
-                    break;
-            }
-            if(message.mentions.users.size === 0) {
-                return message.reply("Please mention a user to ban!")
-            }
-            let banMember = message.guild.member(message.mentions.users.first())
-            if(!banMember) {
-                return menssage.reply("That user is not in the Discord!")
-            }
-           if (!message.guild.member(bot.user).hasPermission("BAN_MEMBERS")) {
-                return message.reply("I dont have enough permmisions")
-           }
-           banMember.ban().then(member => {
-                message.reply(`${member.user.username} has been banned.`).catch(console.error);
         });
     }
         break;
