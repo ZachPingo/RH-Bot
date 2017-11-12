@@ -7,7 +7,7 @@ bot.on('ready', () => {
     console.log(bot.guilds);
     bot.guilds.forEach(function (g) {
         var c = g.channels.find("name", "rank-set-update");
-        c.fetchMessages().then(function (messages) {
+        c.fetchMessages(messages).then(function (messages) {
             messages.forEach(function (m) {
                 console.log(m.content + " Emojis, triggered");
                 m.awaitReactions(function () {
