@@ -241,4 +241,4 @@ bot.on("message", function(message) {
     }
 });
 
-bot.login('Mzc2ODg0NjQwNjIxMDAyNzYy.DOJ2OA.e6ioZuQ487aC53SoeNAOTPbMrko');
+bot.login('Mzc2ODg0NjQwNjIxMDAyNzYy.DQjoBg.vuknHev3A8BD1l0imkHjGk6O-Tg');
